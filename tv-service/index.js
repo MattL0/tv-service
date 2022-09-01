@@ -14,7 +14,6 @@ const clientId = `mqtt_${Math.random().toString(16).slice(3)}`;
 const connectUrl = `mqtt://${host}:${port}`;
 
 const topicPlayState = 'tv-service/playState';
-const topicAppId = 'tv-service/appId';
 const topicType = 'tv-service/type';
 
 let keepAlive;
@@ -53,10 +52,6 @@ service.register('start', function (message) {
                 if (message.payload && message.payload.foregroundAppInfo) {
                     if (Array.isArray(message.payload.foregroundAppInfo) && message.payload.foregroundAppInfo.length > 0) {
                         log(`send ForegroundAppInfo update to MQTT: ${JSON.stringify(message.payload)}`);
-                        client.publish(topicPlayState, `${message.payload.foregroundAppInfo[0].playState}`, {
-                            qos: 0,
-                            retain: false
-                        });
                         client.publish(topicAppId, `${message.payload.foregroundAppInfo[0].appId}`, {
                             qos: 0,
                             retain: false
