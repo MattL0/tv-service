@@ -8,4 +8,8 @@
   },
   "author": "",
   "license": "BSD"
+    "license": "BSD",
+  "dependencies": {
+    "mqtt": "^4.3.7"
+  }
 }
