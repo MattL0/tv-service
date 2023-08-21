@@ -1,1 +1,1 @@
-luna-send -n 1 -f luna://com.ml.tv.service '{}'
+luna-send -n 1 -f luna://com.ml.tv.service/start '{}'
